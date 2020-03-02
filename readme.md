@@ -36,7 +36,7 @@ yarn or npm run server
 
 ## Back-end Developers
 APIS | Relational Database Management Systems and Data Persistence | Authentication | Form Testing
-| --------------------- | ---------------------- | --------------------- | -------------------- | ------------ |
+| --------------------- | ---------------------- | --------------------- | -------------------- |
 
 # Product Vision Document :tada:
 
