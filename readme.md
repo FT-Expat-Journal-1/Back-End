@@ -144,7 +144,7 @@ This is the “bread and butter” of the app, this is what makes your app yours
 
 ## Credits
 ### Project Manager
-Christine Carpenter https://github.com/brandonharris177 <br>
+Christine Carpenter https://github.com/CodingCCarpenter <br>
 
 ### Backend
 Alexis Davalos https://github.com/alexisdavalos <br>
