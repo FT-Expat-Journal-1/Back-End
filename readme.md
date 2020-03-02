@@ -35,7 +35,7 @@ yarn or npm run server
 - More professional instagram.
 
 ## Back-end Developers
-APIS | Intro-to-React| Relational Database Management Systems and Data Persistence | Authentication | Form Testing
+APIS | Relational Database Management Systems and Data Persistence | Authentication | Form Testing
 | --------------------- | ---------------------- | --------------------- | -------------------- | ------------ |
 
 # Product Vision Document :tada:
