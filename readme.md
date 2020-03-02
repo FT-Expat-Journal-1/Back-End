@@ -53,7 +53,7 @@ APIS | Relational Database Management Systems and Data Persistence | Authenticat
 
 #### Proposal
 - What problem does your app solve?
-  * 
+  * Building a photo-journal app for travelers that allows members to share experiences and anecdotes with fellow travel enthusiasts
 
 - Be as specific as possible; how does your app solve the problem?
   * 
@@ -94,36 +94,39 @@ APIS | Relational Database Management Systems and Data Persistence | Authenticat
 
 
 #### What will your user flow be?
-
+* Register, Login, Lands on the Dashboard, User Profile, Ability to Create Posts, Ability to Update/Delete/Modify, Logout
 
 #### Frameworks and Libraries
 - What 3rd party frameworks/libraries are you considering using?
 
 **Frontend:**
+* FrontEnd
 - Axios
 - React
 - React-router
 - React-strap
 - Styled Components
 - Redux
+* Backend
+-Express
+-Knex
+-Postgres
 
 #### Target Audience
 
 - Who is your target audience? Be specific.
-  * Travelers and bloggers
+  * Travelers and bloggers that want to share their experiences
 
 - What feedback have you gotten from potential users?
-  * 
+  * No Research done due to no design team.
 
 - Have you validated the problem and your solution with your target audience? How?
-  *  
+  * No Research done due to no design team.
 
 #### Research
 _Research thoroughly before writing a single line of code. Solidify the features of your app conceptually before implementation. Spend the weekend researching so you can hit the ground running on Monday._
 
 **Research material:**
-
-
 
 #### Prototype Key Features
 This is the “bread and butter” of the app, this is what makes your app yours. Calculate how long it takes to implement these features and triple the time estimated. That way you’ll have plenty of time to finish. It is preferred to drop features and spend more time working on your MVP features if needed.
@@ -141,10 +144,7 @@ This is the “bread and butter” of the app, this is what makes your app yours
 
 ## Credits
 ### Project Manager
-Brandon Harris https://github.com/brandonharris177 <br>
-
-### Frontend
-
+Christine Carpenter https://github.com/brandonharris177 <br>
 
 ### Backend
 Alexis Davalos https://github.com/alexisdavalos <br>
