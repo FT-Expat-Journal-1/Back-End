@@ -1,44 +1,34 @@
 // Update with your config settings.
+const database = {
+  client: 'pg',
+      connection: {
+          host: 'localhost',
+          database: 'dev'
+      },
+      migrations: {
+          directory: './data/migrations'
+      },
+      seeds: { 
+          directory: './data/seeds' 
+      },
+  };
 
 module.exports = {
-
-  development: {
-    client: 'sqlite3',
-    connection: {
-      filename: './dev.sqlite3'
-    }
+  development:{
+    ...database,
+    connection: 'postgresql://localhost/dev',
+    tableName: 'knex_migrations'
   },
 
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
+  testing: {
+    ...database,
+    connection: 'postgresql://localhost/test',
+    tableName: 'knex_migrations'
   },
 
   production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
+    ...database,
+    connection: process.env.DATABASE_URL
   }
 
 };
