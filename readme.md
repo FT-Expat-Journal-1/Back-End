@@ -12,7 +12,7 @@ A step by step series of examples that tell you how to get a development environ
 yarn or npm install
 ```
 
-Then launch the development environment with: 
+Then launch the api with: 
 
 ```
 yarn or npm run server
