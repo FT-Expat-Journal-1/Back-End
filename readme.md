@@ -35,16 +35,8 @@ yarn or npm run server
 - More professional instagram.
 
 ## Back-end Developers
-Applied JavaScript | Intro-to-React| Single Page Application | TeamWork Capabilities | Form Managment
+APIS | Intro-to-React| Relational Database Management Systems and Data Persistence | Authentication | Form Testing
 | --------------------- | ---------------------- | --------------------- | -------------------- | ------------ |
-
-
-## Senior React Developer
-React Application | HTTP/AJAX | Sate Management | TeamWork Capabilities |
-| --------------------- | ---------------------- | --------------------- | -------------------- |
-
-
----
 
 # Product Vision Document :tada:
 
