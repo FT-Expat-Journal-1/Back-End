@@ -43,7 +43,7 @@ APIS | Relational Database Management Systems and Data Persistence | Authenticat
 ## exPat Journal
 
 # API Endpoints
-Use Base URL: https://expatjournal-api.herokuapp.com/api/auth/login
+Use Base URL: https://expatjournal-api.herokuapp.com/
 ## Login Endpoint
 ```js
 POST /api/auth/login
