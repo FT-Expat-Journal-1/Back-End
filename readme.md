@@ -38,9 +38,6 @@ yarn or npm run server
 APIS | Relational Database Management Systems and Data Persistence | Authentication | Form Testing
 | --------------------- | ---------------------- | --------------------- | -------------------- |
 
-# Product Vision Document :tada:
-
-## exPat Journal
 
 # API Endpoints
 Use Base URL: https://expatjournal-api.herokuapp.com/api/auth/login
@@ -201,7 +198,9 @@ DELETE /api/users/:id
 }
 ```
 
+# Product Vision Document :tada:
 
+## exPat Journal
 
 #### Minimal Viable Product (MVP)
 
