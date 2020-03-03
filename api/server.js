@@ -3,9 +3,11 @@ const express = require('express');
 const helmet = require('helmet');   
 const cors = require('cors');
 const restricted = require('../auth/restricted.js')
+
 //routers
 const usersRouter  = require('../users/users-router.js')
 const authRouter = require('../auth/auth-router.js')
+const postsRouter = require('../posts/posts-router.js')
 
 //server instance
 const server = express();
@@ -17,7 +19,8 @@ server.use(helmet()); //node module
 
 //routes
 server.use('/api/users', logger, restricted, usersRouter);
-server.use('/api/auth', logger, authRouter)
+server.use('/api/auth', logger, authRouter);
+server.use('/api/posts', logger, restricted, postsRouter);
 
 //sanity check
 server.get('/', logger, (req, res) =>{
@@ -31,8 +34,7 @@ module.exports = server;
 function logger(req, res, next) {
     console.log(
         `[${new Date().toISOString()}] 
-            \n ${req.method} to ${req.url} from ${req.get('Origin')}`, {reqBody: req.body, reqHeaders: req.headers, resBody: res.body, resHeaders: res.headers} 
-            
+            \n ${req.method} to ${req.url} from ${req.get('Origin')}`
     );
 
     next();

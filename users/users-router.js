@@ -36,7 +36,7 @@ router.put('/:id', (req,res) =>{
             res.status(401).json({message: `Could Not Find User With ID: ${id}`})
         }
     }).catch(err => {
-        res.status(500).json({ message: 'Failed to update resource' });
+        res.status(500).json({ message: 'Failed To Update User' });
       });
 })
 //DELETE user
