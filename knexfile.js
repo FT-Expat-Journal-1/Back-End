@@ -1,3 +1,4 @@
+require("dotenv").config(); //access to .env variables
 // Update with your config settings.
 const database = {
   client: 'pg',
@@ -16,19 +17,30 @@ const database = {
 module.exports = {
   development:{
     ...database,
-    connection: 'postgresql://localhost/dev',
+    connection: {
+      port: process.env.PORT,
+      database: 'dev',
+      user: process.env.USER,
+      password: process.env.PASSWORD
+    },
     tableName: 'knex_migrations'
   },
 
   testing: {
     ...database,
-    connection: 'postgresql://localhost/test',
+    connection: {
+      port: process.env.PORT,
+      database: 'test',
+      user: process.env.USER,
+      password: process.env.PASSWORD
+    },
     tableName: 'knex_migrations'
   },
 
   production: {
     ...database,
-    connection: process.env.DATABASE_URL
+    connection: process.env.DATABASE_URL,
+    tableName: 'knex_migrations'
   }
 
 };
