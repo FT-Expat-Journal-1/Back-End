@@ -2,9 +2,10 @@ require("dotenv").config(); //acces to .env variables
 const express = require('express');
 const helmet = require('helmet');   
 const cors = require('cors');
-
+const restricted = require('../auth/restricted.js')
 //routers
 const usersRouter  = require('../users/users-router.js')
+const authRouter = require('../auth/auth-router.js')
 
 //server instance
 const server = express();
@@ -15,7 +16,8 @@ server.use(cors()); //node module
 server.use(helmet()); //node module
 
 //routes
-server.use('/api/users', logger, usersRouter);
+server.use('/api/users', logger, restricted, usersRouter);
+server.use('/api/auth', logger, authRouter)
 
 //sanity check
 server.get('/', logger, (req, res) =>{

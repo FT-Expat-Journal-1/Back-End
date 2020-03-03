@@ -21,18 +21,6 @@ router.get('/:id', (req, res) =>{
         res.status(500).json({message: 'Failed To Get User With That ID'})
     })
 })
-//POST new user
-router.post('/', (req,res) =>{
-    let newUser = req.body;
-    console.log('the user is:', newUser);
-    Users.insert(newUser).then(user =>{
-        res.status(200).json(user)
-    })
-    .catch(err=>{
-        console.log(err);
-        res.status(500).json({message: 'Failed To Add New User', userSent: req.body})
-    })
-})
 //UPDATE user
 router.put('/:id', (req,res) =>{
     const {id} = req.params;
