@@ -18,7 +18,7 @@ module.exports = {
   development:{
     ...database,
     connection: {
-      port: process.env.PORT,
+      port: process.env.POSTGRES_PORT,
       database: 'dev',
       user: process.env.USER,
       password: process.env.PASSWORD
@@ -29,7 +29,7 @@ module.exports = {
   testing: {
     ...database,
     connection: {
-      port: process.env.PORT,
+      port: process.env.POSTGRES_PORT,
       database: 'test',
       user: process.env.USER,
       password: process.env.PASSWORD
