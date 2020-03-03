@@ -19,7 +19,7 @@ router.post('/register', (req,res) =>{
         res.status(500).json({message: 'Failed To Add New User', userSent: req.body})
     })
 })
-
+//POST Login
 router.post('/login', (req, res) =>{
     let { username, password } = req.body;
 
