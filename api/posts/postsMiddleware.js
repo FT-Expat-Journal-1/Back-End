@@ -27,11 +27,11 @@ function validatePostId(req, res, next) {
 // Validate Post - checks if req contains all required values for post/put.
 
 function validatePost(req, res, next){
-    const { body, other } = req.body;
+    const { user_id, title, body, img_url } = req.body;
     if(!req.body){
         res.status(400).json({message: `Missing Post Information.`});
-    } else if(!body || !other){
-        res.status(400).json({message: `Please include post information: Body.`});
+    } else if(!user_id || ! title || !body || !img_url){
+        res.status(400).json({message: `Please include post information: User Id, Title, Body, and Image.`});
     } else {
         next();
     }

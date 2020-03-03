@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
         })
 });
 
-// To retrieve a single post by the Thread ID.
+// To retrieve a single post by the Post ID.
 router.get('/:id', validatePostId, (req, res) => {
     res.status(200).json(req.post);
 });
@@ -62,5 +62,15 @@ router.delete('/:id', validatePostId, (req, res) => {
             res.status(500).json({message: `Error removing post from database: ${error}`});
         })
 });
+
+// LIKES
+
+// To assign a user like to a post
+
+
+
+// To retrieve an array of users who have liked a post
+
+
 
 module.exports = router;

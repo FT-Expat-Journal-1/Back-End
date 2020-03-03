@@ -1,13 +1,11 @@
 
 exports.seed = function(knex) {
-  // Deletes ALL existing entries
   return knex('users').del()
     .then(function () {
-      // Inserts seed entries
       return knex('users').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
+      {username: 'mosesin.tech', first_name: 'Moses', last_name: 'Cosme', email: 'moses@address.com', password: 'pass120'},
+      {username: 'darthtomale', first_name: 'Miguel', last_name: 'Cosme', email: 'this@address.com', password: 'anotherpass'},
+      {username: 'poeticpolycarp', first_name: 'Karl', last_name: 'Weezer', email: 'that@address.com', password: 'pass'}
       ]);
     });
 };

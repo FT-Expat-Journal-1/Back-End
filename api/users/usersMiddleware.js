@@ -27,12 +27,12 @@ function validateUserId(req, res, next) {
 // Validate User - checks if req contains all required values for post/put.
 
 function validateUser(req, res, next) {
-    const { username, password } = req.body;
+    const { username, email, password } = req.body;
 
     if(!req.body){
         res.status(400).json({message: `Missing user information`});
-    } else if(!username || !password){
-        res.status(400).json({message: `Please include user information: Username and Password.`})
+    } else if(!username || !email || !password){
+        res.status(400).json({message: `Please include user information: Username, Email, and Password.`})
     } else {
         next();
     }
