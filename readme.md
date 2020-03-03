@@ -42,6 +42,166 @@ APIS | Relational Database Management Systems and Data Persistence | Authenticat
 
 ## exPat Journal
 
+# API Endpoints
+Use Base URL: https://expatjournal-api.herokuapp.com/api/auth/login
+## Login Endpoint
+```js
+POST /api/auth/login
+```
+### Expected Body
+```js
+{
+  "username": "test_user",
+  "password": "password"
+}
+```
+### Expected Response
+```js
+{
+    "message": "Welcome test_user!",
+    "token": "eyJhbGciOiJIUzI1NuIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjozLCJ1c2VybmFtZSI6ImFsZXhpcyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTgzMjA3NTI0LCJleHAiOjE1ODMyMTExMjR9.qUO29mM1WCUnECC2SzYBcWpWHief9wqQVQlMsm3VtZ0"
+}
+```
+## Register Endpoint
+```js
+POST /api/auth/register
+```
+### Expected Body
+```js
+{
+  "username": "new_user",
+  "password": "password",
+  "first_name": "John",
+  "last_name": "Doe",
+  "email": "JohnDoe@gmail.com"
+}
+```
+
+### Expected Response
+```js
+[
+    {
+        "id": 3,
+        "username": "new_user"
+    }
+]
+```
+
+## User Endpoints
+### GET All Users
+```js
+GET /api/users
+```
+### Expected Header: Authorization Token
+```js
+
+{
+    "Authorization":"eyJhbGciOiJ4UzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjozLCJ1c2VybmFtZSI6ImFsZXhpcyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTgzMjA4NjI0LCJleHAiOjE1ODMyMTIyMjR9.fxBJRx5d6ho4AxqUpFbsXuf6x3X65JqihX65_lzMND4"
+}
+
+```
+### Expected Response: List of all users in database
+```js
+[
+    {
+        "id": 1,
+        "username": "test_user",
+        "password": "$2a$08$U.yTPF9vnYw54zhXt0iXB.vM4wbkRpsHof40qeBPNutouNjIGfb7S",
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "johndoe@gmail.com"
+    },
+     {
+        "id": 2,
+        "username": "test_user2",
+        "password": "$2a$08$U.yTPF9vnYw54zhXt0iXB.vM4wbkRpsHof40qeBPNutouNjIGfb7S",
+        "first_name": "Poe",
+        "last_name": "Doe",
+        "email": "poedoe@gmail.com"
+    }
+]
+```
+
+### GET User By ID
+```js
+GET /api/users/:id
+```
+### Expected Header: Authorization Token
+```js
+
+{
+    "Authorization":"eyJhbGciOiJ4UzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjozLCJ1c2VybmFtZSI6ImFsZXhpcyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTgzMjA4NjI0LCJleHAiOjE1ODMyMTIyMjR9.fxBJRx5d6ho4AxqUpFbsXuf6x3X65JqihX65_lzMND4"
+}
+
+```
+### Expected Response: User that matches ID
+```js
+{
+    "user": {
+        "id": 1,
+        "username": "test_user",
+        "password": "$2a$08$wUjb6eW0gPjfxdScxAr3Ueri3B3KD.x0wWvNvSjKoIeFnD4HLMJMi",
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "johndoe@gmail.com"
+    }
+}
+```
+### UPDATE User by ID
+```js
+PUT /api/users/:id
+```
+### Expected Body: 
+```js
+
+{
+    "username": "test_user",
+    "password": "password",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "johnsnewemail@gmail.com" //updated field
+}
+
+```
+### Expected Header: Authorization Token
+```js
+
+{
+    "Authorization":"eyJhbGciOiJ4UzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjozLCJ1c2VybmFtZSI6ImFsZXhpcyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTgzMjA4NjI0LCJleHAiOjE1ODMyMTIyMjR9.fxBJRx5d6ho4AxqUpFbsXuf6x3X65JqihX65_lzMND4"
+}
+
+```
+### Expected Response:
+
+```js
+{
+    "success": "updated",
+    "id": 1
+}
+```
+
+### DELETE User by ID
+```js
+DELETE /api/users/:id
+```
+### Expected Header: Authorization Token
+```js
+
+{
+    "Authorization":"eyJhbGciOiJ4UzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjozLCJ1c2VybmFtZSI6ImFsZXhpcyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTgzMjA4NjI0LCJleHAiOjE1ODMyMTIyMjR9.fxBJRx5d6ho4AxqUpFbsXuf6x3X65JqihX65_lzMND4"
+}
+
+```
+### Expected Response:
+
+```js
+{
+    "success": "deleted",
+    "id": 1
+}
+```
+
+
 
 #### Minimal Viable Product (MVP)
 
