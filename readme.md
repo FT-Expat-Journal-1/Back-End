@@ -198,6 +198,127 @@ DELETE /api/users/:id
 }
 ```
 
+## Posts Endpoints
+### GET All posts
+```js
+GET /api/posts
+```
+### Expected Header: Authorization Token
+```js
+
+{
+    "Authorization":"eyJhbGciOiJ4UzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjozLCJ1c2VybmFtZSI6ImFsZXhpcyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTgzMjA4NjI0LCJleHAiOjE1ODMyMTIyMjR9.fxBJRx5d6ho4AxqUpFbsXuf6x3X65JqihX65_lzMND4"
+}
+
+```
+### Expected Response: List of all posts in database
+```js
+[
+    {
+        "id": 1,
+        "title": "My First Post",
+        "body": "This is one of my very first trips shared on Capture!",
+        "img_url": "https://images.pexels.com/photos/3375997/pexels-photo-3375997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    },
+    {
+        "id": 2,
+        "title": "My Second Post",
+        "body": "This is one of my very first trips shared on Capture!",
+        "img_url": "https://images.pexels.com/photos/3375903/pexels-photo-3375903.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    },
+    {
+        "id": 3,
+        "title": "My Third Post",
+        "body": "This is one of my very first trips shared on Capture!",
+        "img_url": "https://images.pexels.com/photos/3699259/pexels-photo-3699259.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    },
+    {
+        "id": 4,
+        "title": "My Fourth Post",
+        "body": "This is one of my very first trips shared on Capture!",
+        "img_url": "https://images.pexels.com/photos/3699259/pexels-photo-3699259.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    }
+]
+```
+
+### GET Post By ID
+```js
+GET /api/posts/:id
+```
+### Expected Header: Authorization Token
+```js
+
+{
+    "Authorization":"eyJhbGciOiJ4UzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjozLCJ1c2VybmFtZSI6ImFsZXhpcyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTgzMjA4NjI0LCJleHAiOjE1ODMyMTIyMjR9.fxBJRx5d6ho4AxqUpFbsXuf6x3X65JqihX65_lzMND4"
+}
+
+```
+### Expected Response: User that matches ID
+```js
+{
+    "post": {
+        "id": 1,
+        "user_id": 1,
+        "title": "My First Post",
+        "body": "This is one of my very first trips shared on Capture!",
+        "img_url": "https://images.pexels.com/photos/3375997/pexels-photo-3375997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "created_date": "2020-03-03T17:18:58.010Z"
+    }
+}
+```
+### UPDATE User by ID
+```js
+PUT /api/posts/:id
+```
+### Expected Body: 
+```js
+
+{
+    "title": "My Second Post Updated", 
+    "body": "This is one of my very first trips shared on Capture!",
+    "img_url": "https://images.pexels.com/photos/3375997/pexels-photo-3375997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+}
+
+```
+### Expected Header: Authorization Token
+```js
+
+{
+    "Authorization":"eyJhbGciOiJ4UzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjozLCJ1c2VybmFtZSI6ImFsZXhpcyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTgzMjA4NjI0LCJleHAiOjE1ODMyMTIyMjR9.fxBJRx5d6ho4AxqUpFbsXuf6x3X65JqihX65_lzMND4"
+}
+
+```
+### Expected Response:
+
+```js
+{
+    "success": "updated",
+    "id": 1
+}
+```
+
+### DELETE User by ID
+```js
+DELETE /api/posts/:id
+```
+### Expected Header: Authorization Token
+```js
+
+{
+    "Authorization":"eyJhbGciOiJ4UzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjozLCJ1c2VybmFtZSI6ImFsZXhpcyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTgzMjA4NjI0LCJleHAiOjE1ODMyMTIyMjR9.fxBJRx5d6ho4AxqUpFbsXuf6x3X65JqihX65_lzMND4"
+}
+
+```
+### Expected Response:
+
+```js
+{
+    "success": "deleted",
+    "id": 1
+}
+```
+
+
 # Product Vision Document :tada:
 
 ## exPat Journal
