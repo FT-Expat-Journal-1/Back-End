@@ -15,6 +15,21 @@ module.exports = {
       directory: './data/seeds'
     }
   },
+  
+  testing: {
+     client: 'pg',
+     connection: {
+      host: 'localhost',
+      database: 'expat_test'
+    },
+     migrations: {
+       directory: './data/migrations',
+       tableName: 'dbmigrations',
+     },
+     seeds: { 
+       directory: './data/seeds' 
+       },
+   },
 
   staging: {
     client: 'postgresql',
@@ -35,7 +50,7 @@ module.exports = {
   production: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
+      database: process.env.DATABASE_URL,
       user:     'username',
       password: 'password'
     },
