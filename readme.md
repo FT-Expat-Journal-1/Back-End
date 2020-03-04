@@ -266,7 +266,7 @@ GET /api/posts/:id
     }
 }
 ```
-### UPDATE User by ID
+### UPDATE Post by ID
 ```js
 PUT /api/posts/:id
 ```
@@ -295,6 +295,39 @@ PUT /api/posts/:id
     "success": "updated",
     "id": 1
 }
+```
+### ADD New Post
+```js
+POST /api/posts/
+```
+### Expected Body: 
+```js
+
+{
+    "user_id": 1,
+    "title": "My Second Post",
+    "body": "This is one of my very first trips shared on Capture!",
+    "img_url": "https://images.pexels.com/photos/3375997/pexels-photo-3375997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+}
+
+```
+### Expected Header: Authorization Token
+```js
+
+{
+    "Authorization":"eyJhbGciOiJ4UzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjozLCJ1c2VybmFtZSI6ImFsZXhpcyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTgzMjA4NjI0LCJleHAiOjE1ODMyMTIyMjR9.fxBJRx5d6ho4AxqUpFbsXuf6x3X65JqihX65_lzMND4"
+}
+
+```
+### Expected Response:
+
+```js
+[
+    {
+        "id": 5,
+        "title": "My Sixth Post"
+    }
+]
 ```
 
 ### DELETE User by ID
