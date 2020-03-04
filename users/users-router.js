@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const express = require('express');
 const Users = require('./users-model.js'); //Users Model
+const bcrypt = require('bcryptjs');
 
 //GET all users
 router.get('/', (req, res) =>{
@@ -24,12 +24,19 @@ router.get('/:id', (req, res) =>{
 //UPDATE user
 router.put('/:id', (req,res) =>{
     const {id} = req.params;
-    const changes = req.body;
-
+    const updatedUser = req.body;
     Users.findById(id).then(user =>{
-        if(user){
-            Users.update(changes, id)
+        if(user && bcrypt.compareSync(updatedUser.password, user.password)){
+            console.log('user password not changed')
+            Users.update(updatedUser, id)
             .then(updated =>{
+                res.status(201).json({success: 'updated', id: user.id})
+            })
+        }else if(user && (!bcrypt.compareSync(updatedUser.password, user.password))){
+            console.log('user password was changed')
+            const hash = bcrypt.hashSync(updatedUser.password, 8); //hashes the updated password
+            updatedUser.password = hash; //sets updated user password value to hashed password
+            Users.update(updatedUser, id).then(updated =>{
                 res.status(201).json({success: 'updated', id: user.id})
             })
         }else{
