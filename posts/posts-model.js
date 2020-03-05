@@ -3,7 +3,7 @@ const db = require('../data/dbConfig.js') //connects to database
 //Find All Users in db
 function find(){
     return db('posts')
-    .select('id', 'title', 'body', 'img_url');
+    .select('id', 'user_id', 'title', 'body', 'img_url');
 }
 //Find All posts by filter
 function findBy(filter){

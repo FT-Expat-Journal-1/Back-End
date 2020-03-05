@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Users = require('./users-model.js'); //Users Model
+const Posts = require('../posts/posts-model.js') //Posts Model
 const bcrypt = require('bcryptjs');
 
 //GET all users
@@ -15,10 +16,29 @@ router.get('/', (req, res) =>{
 //GET user by id
 router.get('/:id', (req, res) =>{
     Users.findById(req.params.id).then(user =>{
-        res.status(200).json({user})
+        res.status(200).json(user)
     })
     .catch(err => {
         res.status(500).json({message: 'Failed To Get User With That ID'})
+    })
+})
+//GET user's posts
+router.get('/:id/posts', (req, res) => {
+    Users.findById(req.params.id)
+    .then(user =>{
+        if(user){
+            Posts.findBy(user.id).then(posts =>{
+                res.status(200).json(posts)
+            })
+            .catch(err =>{
+                res.status(401).json({message: `Failed To Find Posts For: ${user.username}`})
+            })
+        } else{
+            res.status(401).json({message: `Failed To Find User With ID: ${req.params.id} `})
+        }
+    })
+    .catch(err => {
+        res.status(500).json({message: 'Failed To Get Users Posts'})
     })
 })
 //UPDATE user
