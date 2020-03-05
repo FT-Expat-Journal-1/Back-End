@@ -27,7 +27,7 @@ router.get('/:id/posts', (req, res) => {
     Users.findById(req.params.id)
     .then(user =>{
         if(user){
-            Posts.findBy(user.id).then(posts =>{
+            Posts.findBy({user_id: user.id}).then(posts =>{
                 res.status(200).json(posts)
             })
             .catch(err =>{
