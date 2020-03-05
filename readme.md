@@ -35,12 +35,28 @@ yarn or npm run server
 - More professional instagram.
 
 ## Back-end Developers
-APIS | Relational Database Management Systems and Data Persistence | Authentication | Form Testing
+APIS | RDBMS and Data Persistence | Authentication | Form Testing
 | --------------------- | ---------------------- | --------------------- | -------------------- |
 
 
+
 # API Endpoints
-Use Base URL: https://expatjournal-api.herokuapp.com/api/auth/login
+Use Base URL: https://expatjournal-api.herokuapp.com
+
+| Method | Route                | Restricted |
+|--------|----------------------|------------|
+| POST   | /api/auth/register   | no         |
+| POST   | /api/auth/login      | no         |
+| GET    | /api/users           | yes        |
+| GET    | /api/users/:id       | yes        |
+| GET    | /api/users/:id/posts | yes        |
+| PUT    | /api/users/:id       | yes        |
+| DELETE | /api/users/:id       | yes        |
+| GET    | /api/posts           | yes        |
+| GET    | /api/posts/:id       | yes        |
+| PUT    | /api/posts/:id       | yes        |
+| DELETE | /api/posts/:id       | yes        |
+
 ## Login Endpoint
 ```js
 POST /api/auth/login
@@ -144,6 +160,56 @@ GET /api/users/:id
     }
 }
 ```
+### GET User Posts By ID
+```js
+GET /api/users/:id/posts
+```
+### Expected Header: Authorization Token
+```js
+
+{
+    "Authorization":"eyJhbGciOiJ4UzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjozLCJ1c2VybmFtZSI6ImFsZXhpcyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTgzMjA4NjI0LCJleHAiOjE1ODMyMTIyMjR9.fxBJRx5d6ho4AxqUpFbsXuf6x3X65JqihX65_lzMND4"
+}
+
+```
+### Expected Response: Posts that belong to user specified
+```js
+[
+    {
+        "id": 1,
+        "user_id": 1,
+        "title": "My First Posthaha",
+        "body": "This is one of my very first trips shared on Capture!",
+        "img_url": "https://images.pexels.com/photos/3375997/pexels-photo-3375997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "created_date": "2020-03-04T20:00:41.617Z"
+    },
+    {
+        "id": 2,
+        "user_id": 1,
+        "title": "My Second Post",
+        "body": "This is one of my very first trips shared on Capture!",
+        "img_url": "https://images.pexels.com/photos/3375903/pexels-photo-3375903.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "created_date": "2020-03-04T20:00:41.617Z"
+    },
+    {
+        "id": 3,
+        "user_id": 1,
+        "title": "Today",
+        "body": "This is one of my very first trips shared on Capture!",
+        "img_url": "https://images.pexels.com/photos/3699259/pexels-photo-3699259.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "created_date": "2020-03-04T20:00:41.617Z"
+    },
+    {
+        "id": 4,
+        "user_id": 1,
+        "title": "My Fourth Post2",
+        "body": "This is one of my very first trips shared on Capture!",
+        "img_url": "https://images.pexels.com/photos/3699259/pexels-photo-3699259.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "created_date": "2020-03-04T20:00:41.617Z"
+    }
+]
+```
+
 ### UPDATE User by ID
 ```js
 PUT /api/users/:id
@@ -266,7 +332,7 @@ GET /api/posts/:id
     }
 }
 ```
-### UPDATE Post by ID
+### UPDATE User by ID
 ```js
 PUT /api/posts/:id
 ```
@@ -295,39 +361,6 @@ PUT /api/posts/:id
     "success": "updated",
     "id": 1
 }
-```
-### ADD New Post
-```js
-POST /api/posts/
-```
-### Expected Body: 
-```js
-
-{
-    "user_id": 1,
-    "title": "My Second Post",
-    "body": "This is one of my very first trips shared on Capture!",
-    "img_url": "https://images.pexels.com/photos/3375997/pexels-photo-3375997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-}
-
-```
-### Expected Header: Authorization Token
-```js
-
-{
-    "Authorization":"eyJhbGciOiJ4UzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjozLCJ1c2VybmFtZSI6ImFsZXhpcyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTgzMjA4NjI0LCJleHAiOjE1ODMyMTIyMjR9.fxBJRx5d6ho4AxqUpFbsXuf6x3X65JqihX65_lzMND4"
-}
-
-```
-### Expected Response:
-
-```js
-[
-    {
-        "id": 5,
-        "title": "My Sixth Post"
-    }
-]
 ```
 
 ### DELETE User by ID
