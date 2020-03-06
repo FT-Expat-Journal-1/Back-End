@@ -35,7 +35,7 @@ yarn or npm run server
 - More professional instagram.
 
 ## Back-end Developers
-APIS | RDBMS and Data Persistence | Authentication | Testing
+APIS | RDBMS and Data Persistence | Authentication | Form Testing
 | --------------------- | ---------------------- | --------------------- | -------------------- |
 
 
@@ -43,19 +43,19 @@ APIS | RDBMS and Data Persistence | Authentication | Testing
 # API Endpoints
 Use Base URL: https://expatjournal-api.herokuapp.com
 
-| Method | Route                | Description                                    |
-|--------|----------------------|------------------------------------------------|
-| POST   | /api/auth/register   | registers new users                            |
-| POST   | /api/auth/login      | grants users access                            |
-| GET    | /api/users           | returns array of users                         |
-| GET    | /api/users/:id       | returns users specified by :id                 |
-| GET    | /api/users/:id/posts | returns posts created by user specified by :id |
-| PUT    | /api/users/:id       | updates user specified by :id                  |
-| DELETE | /api/users/:id       | deletes user specified by :id                  |
-| GET    | /api/posts           | returns array of posts                         |
-| GET    | /api/posts/:id       | returns post specified by :id                  |
-| PUT    | /api/posts/:id       | updates post specified by :id                  |
-| DELETE | /api/posts/:id       | deletes post specified by :id                  |
+| Method | Route                | Restricted |
+|--------|----------------------|------------|
+| POST   | /api/auth/register   | no         |
+| POST   | /api/auth/login      | no         |
+| GET    | /api/users           | yes        |
+| GET    | /api/users/:id       | yes        |
+| GET    | /api/users/:id/posts | yes        |
+| PUT    | /api/users/:id       | yes        |
+| DELETE | /api/users/:id       | yes        |
+| GET    | /api/posts           | yes        |
+| GET    | /api/posts/:id       | yes        |
+| PUT    | /api/posts/:id       | yes        |
+| DELETE | /api/posts/:id       | yes        |
 
 ## Login Endpoint
 ```js
