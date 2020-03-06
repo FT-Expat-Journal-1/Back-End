@@ -15,7 +15,7 @@ router.get('/', (req, res) =>{
 //GET post by id
 router.get('/:id', (req, res) =>{
     Posts.findById(req.params.id).then(post =>{
-        res.status(200).json({post})
+        res.status(200).json(post)
     })
     .catch(err => {
         res.status(500).json({message: 'Failed To Get Post With That ID'})
@@ -35,12 +35,12 @@ router.post('/', (req, res) =>{
 router.put('/:id', (req,res) =>{
     const {id} = req.params;
     const changes = req.body;
-
+ 
     Posts.findById(id).then(post =>{
         if(post){
             Posts.update(changes, id)
             .then(updated =>{
-                res.status(201).json({success: 'updated', id: post.id})
+                res.status(201).json({success: 'updated', id: post.id, ...changes})
             })
         }else{
             res.status(401).json({message: `Could Not Find Post With ID: ${id}`})

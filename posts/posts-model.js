@@ -12,6 +12,7 @@ function findBy(filter){
 //Find User by ID
 function findById(id) {
     return db('posts')
+    .select('id', 'user_id', 'title', 'body', 'img_url')
     .where({id})
     .first();
 }
