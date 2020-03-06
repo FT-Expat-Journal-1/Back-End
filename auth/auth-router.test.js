@@ -1,9 +1,15 @@
 const request = require('supertest'); //initiates supertest
 const server = require('../api/server.js') // initiates server
 const db = require('../data/dbConfig.js');  // initiates db
+const jwt = require('jsonwebtoken')
 
 
 describe('Auth-Router Endpoints', () =>{
+    //initialize test user credentials from seed user
+    const user = {
+        username: 'test_user',
+        password: 'password'
+    }
     //clears out tables before each test and re-seeds
     beforeEach(async  () =>{
         //clears tables
@@ -13,7 +19,7 @@ describe('Auth-Router Endpoints', () =>{
         await db.seed.run();     
     })
     
-    test('POST /api/auth/register', async () =>{
+    test('POST to /api/auth/register', async () =>{
         //initiate a request to the server
         const res = await request(server)
         //declare endpoint
@@ -34,7 +40,7 @@ describe('Auth-Router Endpoints', () =>{
         expect(res.body[0].username).toBe('test'); 
     })
 
-    test('POST /api/auth/login', async () =>{
+    test('POST to /api/auth/login', async () =>{
         //test user credentials from seed user
         const user = {
             username: 'test_user',
@@ -53,4 +59,25 @@ describe('Auth-Router Endpoints', () =>{
         expect(res.body.message).toBe('Welcome test_user!')
 
     })
+    test('Generate JWT Test', async () =>{
+
+        const res = await request(server)
+        .post('/api/auth/login')
+        .send(user)
+
+        //does it return the expected status code?
+        expect(res.status).toBe(200)
+        //does it return the expected data format?
+        expect(res.type).toMatch(/json/)
+        //does it return the expected data?
+        expect(res.body.message).toBe('Welcome test_user!')
+
+        //User Credentails should generate token
+        const token = res.body.token;
+
+        //Check Length of token to verify existence 
+        expect(res.body.token).Length().toBe(187);
+        
+    })
+
 })
