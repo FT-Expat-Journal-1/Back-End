@@ -2,9 +2,10 @@ const request = require('supertest'); //initiates supertest
 const server = require('../api/server.js') // initiates server
 const db = require('../data/dbConfig.js');  // initiates db
 const jwt = require('jsonwebtoken')
+const {jwtSecret} = require('../config/secrets.js')
 
 afterAll(async ()=>{  
-   await db.destroy();
+    await db.destroy();
 })
 
 //initialize test user credentials from seed user
@@ -12,6 +13,22 @@ const user = {
     username: 'test_user',
     password: 'password'
 }
+//declare token generation function
+function generateToken(user) {
+    
+    const payload = {
+      username: user.username,
+      role: user.role || "user",
+    };
+  
+    const options = {
+      expiresIn: "1h", //token expires after 1h
+    };
+    return jwt.sign(payload, jwtSecret, options);
+  }
+
+//initialize token
+const token = generateToken(user);
 
 describe("Users-Router Test Starts", () => {
     it("Should run the test", () => {
@@ -23,12 +40,6 @@ describe("Users-Router Test Starts", () => {
 describe('Users-Router Endpoints', () =>{
 
     test('GET to /api/users', async () =>{ 
-        //initialize token for restricted access
-        const authorize = await request(server)
-        .post('/api/auth/login')
-        .send(user)
-        //set token from response body
-        token = authorize.body.token;
 
         //initiate a request to the server
         const res = await request(server)
@@ -47,12 +58,6 @@ describe('Users-Router Endpoints', () =>{
     });
 
     test('GET to /api/users/:id', async () =>{
-        // initialize token for restricted access
-        const authorize = await request(server)
-        .post('/api/auth/login')
-        .send(user)
-        //set token from response body
-        const token = authorize.body.token;
 
         // initiate a request to the server
         const res = await request(server)
@@ -72,12 +77,6 @@ describe('Users-Router Endpoints', () =>{
     });
 
     test('GET to /api/users/:id/posts', async () =>{
-       // initialize token for restricted access
-       const authorize = await request(server)
-       .post('/api/auth/login')
-       .send(user)
-       //set token from response body
-       const token = authorize.body.token;
         
         const res = await request(server)
         //declare endpoint
@@ -97,14 +96,6 @@ describe('Users-Router Endpoints', () =>{
     });
 
     test('DELETE to /api/users/:id', async () =>{
-        //initialize token for restricted access
-        const authorize = await request(server)
-        .post('/api/auth/login')
-        .send(user)
-        //set token from response body
-        const token = authorize.body.token;
-        // initiate a request to the server
-
         const res = await request(server)
         //declare endpoint
         .delete('/api/users/1')
