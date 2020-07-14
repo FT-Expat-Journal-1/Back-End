@@ -7,7 +7,6 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex('users').insert([
         {
-          id: 1, 
           username: 'test_user', 
           password: bcrypt.hashSync('password', 8),
           first_name: 'John',
