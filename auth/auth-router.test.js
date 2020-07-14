@@ -76,7 +76,7 @@ describe('Auth-Router Endpoints', () =>{
         const token = res.body.token;
 
         //Check Length of token to verify existence 
-        expect(res.body.token).Length().toBe(187);
+        expect(token).Length().toBe(187);
         
     })
 
