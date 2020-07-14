@@ -35,10 +35,8 @@ yarn or npm run server
 - More professional instagram.
 
 ## Back-end Developers
-APIS | RDBMS and Data Persistence | Authentication | Testing
-| --------------------- | ---------------------- | --------------------- | -------------------- |
 
-
+APIS | RDBMS and Data Persistence | Authentication | Form Testing
 
 # API Endpoints
 Use Base URL: https://expatjournal-api.herokuapp.com
@@ -56,6 +54,7 @@ Use Base URL: https://expatjournal-api.herokuapp.com
 | GET    | /api/posts/:id       | returns post specified by :id                  |
 | PUT    | /api/posts/:id       | updates post specified by :id                  |
 | DELETE | /api/posts/:id       | deletes post specified by :id                  |
+
 
 ## Login Endpoint
 ```js
