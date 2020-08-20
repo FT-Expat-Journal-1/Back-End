@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/FT-Expat-Journal-1/Back-End#readme",
   "dependencies": {
-    "bcrypt": "^4.0.0",
+    "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
